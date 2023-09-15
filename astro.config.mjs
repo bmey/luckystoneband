@@ -5,6 +5,6 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://bmey.github.io',
+  site: 'http://luckystone.band',
   integrations: [react(), tailwind()]
 });
