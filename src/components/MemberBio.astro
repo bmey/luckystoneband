@@ -30,7 +30,7 @@ const { description, imgSrc, name, role } = Astro.props;
         object-fit: cover;
         object-position: center;
         width: var(--imgSizeCss);
-        box-shadow: 0px 2px 5px black;
+        box-shadow: 0px 2px 5px var(--color-primary-dark);
         margin-right: 2rem;
     }
     .bio {
@@ -39,13 +39,13 @@ const { description, imgSrc, name, role } = Astro.props;
         margin: 2rem;
     }
     h4 {
-        color: var(--color-light);
+        color: var(--color-primary-dark);
         font-size: 2.2rem;
 		font-family: var(--font-header);
         letter-spacing: 3px;
     }
     .role {
-        color: #888;
+        color: rgba(var(--color-primary-dark-rgb), 0.7);
         font-size: 0.85rem;
         margin-bottom: 0.5rem;
         text-transform: uppercase;
@@ -55,7 +55,16 @@ const { description, imgSrc, name, role } = Astro.props;
         flex-direction: column;
     }
     p {
-        color: #ccc;
         max-width: 30rem;
     }
+    @media only screen and (max-width: 600px) {
+		.bio {
+			flex-direction: column;
+            margin: 2rem 0;
+            text-align: center;
+		}
+        img {
+            margin: 0 0 1rem;
+        }
+	}
 </style>

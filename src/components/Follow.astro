@@ -1,9 +1,46 @@
 ---
 import Section from "../layouts/Section.astro";
+import { Image } from "astro:assets";
+import Facebook from "../images/facebook.webp";
 ---
 
 <Section id="Follow" title="Follow">
-    <div>
-        <a href="https://www.facebook.com/luckystoneband">Facebook</a>
+    <div class="content">
+        <a class="buttonlink" href="https://www.facebook.com/luckystoneband">
+            <Image src={Facebook} alt="Facebook" width="30" />
+            <span>Facebook</span>
+        </a>
     </div>
 </Section>
+
+<style>
+    a {
+        display: flex;
+        align-items:center;
+    }
+    img {
+        filter: invert(1);
+        margin-right: 0.5rem;
+    }
+    .content {
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+    }
+    .buttonlink {
+		background: rgba(var(--primaryRGB), 0.5);
+        border-radius: 8px;
+		color: var(--color-light);
+		cursor: pointer;
+		font-size: 1.25rem;
+		padding: 0.5rem 1rem;
+        text-decoration: none;
+		transition: all 0.3s ease;
+	}
+
+	.buttonlink:hover,
+	.buttonlink:focus {
+		color: var(--color-lighter);
+		background: rgba(var(--primaryRGB), 0.9);
+	}
+</style>

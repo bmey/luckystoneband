@@ -2,7 +2,6 @@
 import AboutUs from "../components/AboutUs.astro";
 import Events from "../components/Events.astro";
 import Follow from "../components/Follow.astro";
-import Listen from "../components/Listen.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -16,7 +15,6 @@ import Layout from "../layouts/Layout.astro";
 				<nav>
 					<button class="navlink" id="link-Events">Events</button>
 					<button class="navlink" id="link-About">About</button>
-					<button class="navlink" id="link-Listen">Listen</button>
 					<button class="navlink" id="link-Follow">Follow</button>
 				</nav>
 			</div>
@@ -24,7 +22,6 @@ import Layout from "../layouts/Layout.astro";
 		<div>
 			<Events />
 			<AboutUs />
-			<Listen />
 			<Follow />
 		</div>
 	</main>
@@ -51,6 +48,15 @@ import Layout from "../layouts/Layout.astro";
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	@media only screen and (max-width: 600px) {
+		.hero-cutout {
+			font-size: max(min(38vw, 50vh), 18rem);
+			line-height: max(min(35vw, 50vh), 15rem);
+			letter-spacing: 1rem;
+			justify-content: start;
+		}
 	}
 
 	h1 {

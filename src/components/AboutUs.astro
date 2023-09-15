@@ -7,7 +7,7 @@ import Section from "../layouts/Section.astro";
 import MemberBio from "./MemberBio.astro";
 ---
 
-<Section id="About" title="About">
+<Section id="About" title="About" altColor>
     <div class="content">
         <p>
             Based out of Newark, Delaware, Lucky Stone is an exhilarating cover
@@ -55,5 +55,8 @@ import MemberBio from "./MemberBio.astro";
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    p {
+        text-indent: 2rem;
     }
 </style>
