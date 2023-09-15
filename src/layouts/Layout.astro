@@ -15,13 +15,27 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+		<link href="https://fonts.cdnfonts.com/css/squealer" rel="stylesheet" />
+		<link
+			href="https://fonts.cdnfonts.com/css/league-spartan"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.cdnfonts.com/css/libre-baskerville"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 <style is:global>
+	/* pallete https://coolors.co/3ca51e-e3b23c-edebd7-2a4b2e */
 	:root {
+		--primary: #3ca51e;
+		--primaryRGB: 60, 165, 30;
+
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
 		--accent-dark: 49, 10, 101;
@@ -33,9 +47,9 @@ const { title } = Astro.props;
 		);
 	}
 	html {
-		font-family: system-ui, sans-serif;
+		font-family: "League Spartan", system-ui, sans-serif;
 		background: #13151a;
-		background-size: 224px;
+		color: white;
 	}
 	code {
 		font-family:
