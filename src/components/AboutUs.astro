@@ -1,0 +1,59 @@
+---
+import imgAdam from "../images/profile-adam.jpeg";
+import imgBryan from "../images/profile-bryan.jpeg";
+import imgJessie from "../images/profile-jessie.jpeg";
+import imgSeth from "../images/profile-seth.jpeg";
+import Section from "../layouts/Section.astro";
+import MemberBio from "./MemberBio.astro";
+---
+
+<Section id="About" title="About">
+    <div class="content">
+        <p>
+            Based out of Newark, Delaware, Lucky Stone is an exhilarating cover
+            band that knows how to bring the party to any event. With their
+            talented and versatile lineup, they deliver a dynamic energy that's
+            truly infectious. Whether it's a small gathering or a large outdoor
+            concert, Lucky Stone's performances are a testament to their
+            collective passion for music. They effortlessly switch between
+            instruments and harmonies, creating a captivating experience that
+            leaves audiences wanting more. Be sure to catch them at their next
+            gig - Lucky Stone is all about delivering a memorable musical
+            journey!
+        </p>
+        <MemberBio
+            description="Adam is a total kid when it’s time to have fun, but an absolute beast at putting in work during practice and setup for a show. Don’t be surprised if you get a nice drum fill out of him when you make eye contact."
+            imgSrc={imgAdam}
+            name="Adam"
+            role="Drums/Vocals/Guitar"
+        />
+        <MemberBio
+            description="Bryan is a laid back guy that channels his excitement through a wah pedal. Some of his favorite moments are learning new riffs and making noise at a show. Check out his new pedal board when you see him next!"
+            imgSrc={imgBryan}
+            name="Bryan"
+            role="Guitar/Vocals/Bass"
+        />
+        <MemberBio
+            description="Singing is her therapy! She is thrilled to be playing with her husband, brother, and family friend, from basement jams to bigger outdoor events and everything in between. She is often asked to sing Janis Joplin’s songs and you don’t have to twist her arm for her to oblige."
+            imgSrc={imgJessie}
+            name="Jessie"
+            role="Vocals/Bass/Cajon"
+        />
+        <MemberBio
+            description="Seth loves jumping around between instruments, learning new songs, and is here to rock! Don’t be surprised if you see him tweaking guitars without a tuner, because his ear is just that good."
+            imgSrc={imgSeth}
+            name="Seth"
+            role="Guitar/Vocals/Bass/Drums/Cajon/whatever you need"
+        />
+    </div>
+</Section>
+
+<style>
+    .content {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>

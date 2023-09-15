@@ -1,0 +1,35 @@
+---
+interface Props {
+    id: string;
+	title: string;
+    altColor?: boolean;
+}
+
+const { altColor, id, title } = Astro.props;
+---
+<section class={altColor ? "alt" : ""}>
+    <div class="container">
+        <h2 class="heading" id={id}>{title}</h2>
+        <slot />
+    </div>
+</section>
+
+<style>
+    section {
+        padding: 2rem 0;
+    }
+    .alt {
+        background-color: var(--light);
+        color: var(--color-primary-dark);
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    h2 {
+		letter-spacing: 3px;
+		font-size: 3rem;
+        font-family: var(--font-header);
+        text-align: center;
+	}
+</style>

@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+    description: string;
+    imgSrc: ImageMetadata;
+    name: string;
+    role: string;
+}
+
+const imgSize = 200;
+const imgSizeCss = `${imgSize}px`;
+const { description, imgSrc, name, role } = Astro.props;
+---
+
+<div class="bio">
+    <Image src={imgSrc} alt={name} width={imgSize} height={imgSize} />
+    <div class="content">
+        <h4>{name}</h4>
+        <div class="role">{role}</div>
+        <p>{description}</p>
+    </div>
+</div>
+
+<style define:vars={{ imgSizeCss }}>
+    img {
+        border-radius: 50%;
+        flex-shrink: 0;
+        height: var(--imgSizeCss);
+        object-fit: cover;
+        object-position: center;
+        width: var(--imgSizeCss);
+        box-shadow: 0px 2px 5px black;
+        margin-right: 2rem;
+    }
+    .bio {
+        display: flex;
+        align-items: center;
+        margin: 2rem;
+    }
+    h4 {
+        color: var(--color-light);
+        font-size: 2.2rem;
+		font-family: var(--font-header);
+        letter-spacing: 3px;
+    }
+    .role {
+        color: #888;
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+    p {
+        color: #ccc;
+        max-width: 30rem;
+    }
+</style>
