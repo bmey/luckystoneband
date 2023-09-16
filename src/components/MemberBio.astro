@@ -55,7 +55,7 @@ const { description, imgSrc, name, role } = Astro.props;
         flex-direction: column;
     }
     p {
-        max-width: 30rem;
+        max-width: min(calc(100vw-4rem), 30rem);
     }
     @media only screen and (max-width: 600px) {
 		.bio {

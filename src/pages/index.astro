@@ -3,12 +3,14 @@ import AboutUs from "../components/AboutUs.astro";
 import Events from "../components/Events.astro";
 import Follow from "../components/Follow.astro";
 import Layout from "../layouts/Layout.astro";
+import Hero from "../images/IMG_5146.jpg";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="Lucky Stone">
 	<main>
 		<div class="banner">
-			<img src="./IMG_5146.jpg" />
+			<Image src={Hero} alt="lucky stone playing" />
 			<div class="band-name hero-cutout">Lucky Stone</div>
 			<div class="nav-container">
 				<h1 class="band-name">Lucky Stone</h1>
