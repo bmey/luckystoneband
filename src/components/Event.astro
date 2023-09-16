@@ -11,27 +11,47 @@ const formattedDate = dayjs(date).format("dddd, MMM D");
 ---
 
 <a class="content" href={`https://www.facebook.com/events/${facebookEventId}/`}>
-    <div class="header">
-        <i class="fa-solid fa-calendar"></i>
+    <div class="header date">
         <div>{formattedDate}</div>
     </div>
     <div class="header">
         <i class="fa-solid fa-location-dot"></i>
         <div>{locationName}</div>
     </div>
-    <div class="link">View details</div>
+    <div class="link">View more</div>
 </div>
 
 <style>
     .content {
-        margin: 1rem 0;
+        margin: 2rem 0;
         padding: 1rem 2rem;
-        background-color: rgba(var(--color-primary-dark2-rgb), 0.3);
+        background-color: rgba(var(--color-primary-dark2-rgb), 0.4);
         border-radius: 0.5rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
 		transition: all 0.3s ease;
+    }
+    .content > :not(:last-child) {
+        flex: 1;
+    }
+    @media only screen and (max-width: 800px) {
+		.content {
+			flex-direction: column;
+            text-align: center;
+		}
+
+        .header {
+            margin: 0 0 1rem;
+        }
+
+        .date {
+            font-size: 1.75rem;
+        }
+	}
+    .date {
+        font-weight: bold;
+        font-size: 1.5rem;
     }
     .header {
         display: flex;
@@ -42,14 +62,13 @@ const formattedDate = dayjs(date).format("dddd, MMM D");
     }
     .link {
 		background: transparent;
-		border: none;
+		border: 2px solid var(--primary);
+        border-radius: 50px;
 		color: var(--primary);
 		cursor: pointer;
-		padding: 0;
-		text-decoration-color: rgba(var(--primaryRGB), 0.5);
-		text-decoration-line: underline;
-		text-decoration-thickness: 0.5px;
-		text-underline-offset: 0.5rem;
+		padding: 0.5rem 1rem;
+		text-decoration: none;
+        text-transform: uppercase;
 		transition: all 0.3s ease;
 	}
 
@@ -59,7 +78,8 @@ const formattedDate = dayjs(date).format("dddd, MMM D");
     }
 	a:hover .link,
 	a:focus .link {
+        background: rgba(var(--color-primary-dark2-rgb), 0.9);
+		border-color: var(--color-light);
 		color: var(--color-light);
-		text-decoration-color: rgba(var(--primaryRGB), 0.9);
 	}
 </style>
