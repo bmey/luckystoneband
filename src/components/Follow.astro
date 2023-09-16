@@ -1,13 +1,11 @@
 ---
 import Section from "../layouts/Section.astro";
-import { Image } from "astro:assets";
-import Facebook from "../images/facebook.webp";
 ---
 
 <Section id="Follow" title="Follow">
     <div class="content">
         <a class="buttonlink" href="https://www.facebook.com/luckystoneband">
-            <Image src={Facebook} alt="Facebook" width="30" />
+            <i class="fa-brands fa-facebook"></i>
             <span>Facebook</span>
         </a>
     </div>
@@ -18,8 +16,7 @@ import Facebook from "../images/facebook.webp";
         display: flex;
         align-items:center;
     }
-    img {
-        filter: invert(1);
+    i {
         margin-right: 0.5rem;
     }
     .content {
