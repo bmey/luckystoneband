@@ -1,7 +1,41 @@
 ---
 import Section from "../layouts/Section.astro";
+import Event, {Props} from "./Event.astro";
+const events: Props[] = [
+    {
+        facebookEventId: "258368050274929",
+        locationName: "Muddy Paws Farm Rescue",
+        date: "2023-09-16",
+    },
+    {
+        facebookEventId: "2623327801138974",
+        locationName: "Stoney's British Pub",
+        date: "2023-10-06",
+    },
+    {
+        facebookEventId: "292638716804868",
+        locationName: "Midnight Oil Brewing Co.",
+        date: "2023-11-11",
+    },
+    {
+        facebookEventId: "623698503207827",
+        locationName: "Autumn Arch Beer Project",
+        date: "2023-12-22",
+    },
+];
 ---
 
 <Section id="Events" title="Events">
-    <span>events</span>
+   <div class="content">
+    {events.map(event => (
+        <Event {...event} />
+    ))}
+   </div>
 </Section>
+
+<style>
+    .content {
+        max-width: 800px;
+        margin:0 auto;
+    }
+</style>

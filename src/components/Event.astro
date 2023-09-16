@@ -1,0 +1,65 @@
+---
+import dayjs from 'dayjs';
+export interface Props {
+    date: `${number}${number}${number}${number}-${number}${number}-${number}${number}`;
+    facebookEventId: string;
+    locationName: string;
+}
+
+const { date, facebookEventId, locationName } = Astro.props;
+const formattedDate = dayjs(date).format("dddd, MMM D");
+---
+
+<a class="content" href={`https://www.facebook.com/events/${facebookEventId}/`}>
+    <div class="header">
+        <i class="fa-solid fa-calendar"></i>
+        <div>{formattedDate}</div>
+    </div>
+    <div class="header">
+        <i class="fa-solid fa-location-dot"></i>
+        <div>{locationName}</div>
+    </div>
+    <div class="link">View details</div>
+</div>
+
+<style>
+    .content {
+        margin: 1rem 0;
+        padding: 1rem 2rem;
+        background-color: rgba(var(--color-primary-dark2-rgb), 0.3);
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+		transition: all 0.3s ease;
+    }
+    .header {
+        display: flex;
+        align-items: center;
+    }
+    .header i {
+        margin-right: 0.5rem;
+    }
+    .link {
+		background: transparent;
+		border: none;
+		color: var(--primary);
+		cursor: pointer;
+		padding: 0;
+		text-decoration-color: rgba(var(--primaryRGB), 0.5);
+		text-decoration-line: underline;
+		text-decoration-thickness: 0.5px;
+		text-underline-offset: 0.5rem;
+		transition: all 0.3s ease;
+	}
+
+    a:hover,
+    a:focus {
+        background-color: rgba(var(--color-primary-dark2-rgb), 0.55);
+    }
+	a:hover .link,
+	a:focus .link {
+		color: var(--color-light);
+		text-decoration-color: rgba(var(--primaryRGB), 0.9);
+	}
+</style>
