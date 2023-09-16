@@ -16,7 +16,7 @@ const { description, imgSrc, name, role } = Astro.props;
 <div class="bio">
     <Image src={imgSrc} alt={name} width={imgSize} height={imgSize} />
     <div class="content">
-        <h4>{name}</h4>
+        <h3>{name}</h4>
         <div class="role">{role}</div>
         <p>{description}</p>
     </div>
@@ -38,7 +38,7 @@ const { description, imgSrc, name, role } = Astro.props;
         align-items: center;
         margin: 2rem;
     }
-    h4 {
+    h3 {
         color: var(--color-primary-dark);
         font-size: 2.2rem;
 		font-family: var(--font-header);
