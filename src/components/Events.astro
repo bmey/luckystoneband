@@ -1,32 +1,24 @@
 ---
 import Section from "../layouts/Section.astro";
-import Event, {Props} from "./Event.astro";
-import dayjs from 'dayjs';
+import { Event, EventProps } from "./Event";
 
-const yesterday = dayjs().subtract(1, "day");
-
-const events: Props[] = [
+const events: EventProps[] = [
     {
-        facebookEventId: "25836Ø8050274929",
-        locationName: "Muddy Paws Farm Rescue",
-        date: "2023-09-16",
-    },
-    {
-        facebookEventId: "2623327801138974",
-        locationName: "Stoney's British Pub",
-        date: "2023-10-06",
-    },
+        facebookEventId: "702463941410406",
+        locationName: "Corbit-Calloway Memorial Library",
+        date: "2023-11-04",
+    } as EventProps,
     {
         facebookEventId: "292638716804868",
         locationName: "Midnight Oil Brewing Co.",
         date: "2023-11-11",
-    },
+    } as EventProps,
     {
         facebookEventId: "623698503207827",
         locationName: "Autumn Arch Beer Project",
         date: "2023-12-22",
-    },
-].filter(e => yesterday.isBefore(e.date));
+    } as EventProps,
+];
 ---
 
 <Section id="Events" title="Events">
@@ -72,4 +64,66 @@ const events: Props[] = [
 		line-height: 1rem;
 		text-decoration-color: rgba(var(--primaryRGB), 0.9);
     }
+
+    /* TODO: style child react component in a better way */
+    :global(.event) {
+        margin: 2rem 0;
+        padding: 1rem 2rem;
+        background-color: rgba(var(--color-primary-dark2-rgb), 0.4);
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+		transition: all 0.3s ease;
+    }
+    :global(.event > :not(:last-child)) {
+        flex: 1;
+    }
+    @media only screen and (max-width: 800px) {
+		:global(.event) {
+			flex-direction: column;
+            text-align: center;
+		}
+
+        :global(.event .header) {
+            margin: 0 0 1rem;
+        }
+
+        :global(.event .date) {
+            font-size: 1.75rem;
+        }
+	}
+    :global(.event .date) {
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+    :global(.event .header) {
+        display: flex;
+        align-items: center;
+    }
+    :global(.event .header i) {
+        margin-right: 0.5rem;
+    }
+    :global(.event .link) {
+		background: transparent;
+		border: 2px solid var(--primary);
+        border-radius: 50px;
+		color: var(--primary);
+		cursor: pointer;
+		padding: 0.5rem 1rem;
+		text-decoration: none;
+        text-transform: uppercase;
+		transition: all 0.3s ease;
+	}
+
+    :global(.event:hover),
+    :global(.event:focus) {
+        background-color: rgba(var(--color-primary-dark2-rgb), 0.55);
+    }
+	:global(.event:hover .link),
+	:global(.event:focus .link) {
+        background: rgba(var(--color-primary-dark2-rgb), 0.9);
+		border-color: var(--color-light);
+		color: var(--color-light);
+	}
 </style>
