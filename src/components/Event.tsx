@@ -4,13 +4,15 @@ type DateString =
   `${number}${number}${number}${number}-${number}${number}-${number}${number}`;
 
 export interface EventProps {
+  address: string;
   date: DateString;
   facebookEventId: string;
   locationName: string;
+  startTime: string;
 }
 
 export const Event = (props: EventProps) => {
-  const { date, facebookEventId, locationName } = props;
+  const { address, date, facebookEventId, locationName, startTime } = props;
   const yesterday = dayjs().subtract(1, "day");
   const formattedDate = dayjs(date).format("dddd, MMM D");
 
@@ -24,11 +26,17 @@ export const Event = (props: EventProps) => {
       href={`https://www.facebook.com/events/${facebookEventId}/`}
     >
       <div className="header date">
-        <div>{formattedDate}</div>
+        <div>
+          {formattedDate}
+          <div className="subtext start-time">{startTime}</div>
+        </div>
       </div>
-      <div className="header">
-        <i className="fa-solid fa-location-dot"></i>
-        <div>{locationName}</div>
+      <div className="header location">
+        <i className="fa-solid fa-location-dot fa-xl"></i>
+        <div>
+          <div className="location-name">{locationName}</div>
+          <div className="subtext">{address}</div>
+        </div>
       </div>
       <div className="link">View more</div>
     </a>

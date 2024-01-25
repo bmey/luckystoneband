@@ -3,142 +3,184 @@ import Section from "../layouts/Section.astro";
 import { Event, EventProps } from "./Event";
 
 const events: EventProps[] = [
-    {
-        facebookEventId: "1102776627757440",
-        locationName: "Stoney's British Pub",
-        date: "2024-02-24",
-    } as EventProps,
-    {
-        facebookEventId: "747917250510452",
-        locationName: "Midnight Oil Brewing Co.",
-        date: "2024-03-09",
-    } as EventProps,
-    {
-        facebookEventId: "2113556038981376",
-        locationName: "Constitution Yards",
-        date: "2024-04-13",
-    } as EventProps,
-    {
-        facebookEventId: "1102759810877305",
-        locationName: "Deer Park Tavern",
-        date: "2024-04-19",
-    } as EventProps,
-    {
-        facebookEventId: "431606312647582",
-        locationName: "Mayfest in Odessa",
-        date: "2024-05-04",
-    } as EventProps,
-    {
-        facebookEventId: "299209436457869",
-        locationName: "Muddy Paws Farm Rescue (NJ)",
-        date: "2024-05-11",
-    } as EventProps,
-];
+  {
+    facebookEventId: "1102776627757440",
+    locationName: "Stoney's British Pub",
+    address: "Wilmington, DE",
+    date: "2024-02-24",
+    startTime: "7:30 pm",
+  } as EventProps,
+  {
+    facebookEventId: "747917250510452",
+    locationName: "Midnight Oil Brewing Co.",
+    address: "Newark, DE",
+    date: "2024-03-09",
+    startTime: "6 pm",
+  } as EventProps,
+  {
+    facebookEventId: "2113556038981376",
+    locationName: "Constitution Yards",
+    address: "Wilmington, DE",
+    date: "2024-04-13",
+    startTime: "7 pm",
+  } as EventProps,
+  {
+    facebookEventId: "1102759810877305",
+    locationName: "Deer Park Tavern",
+    address: "Newark, DE",
+    date: "2024-04-19",
+    startTime: "10:30 pm",
+  } as EventProps,
+  {
+    facebookEventId: "431606312647582",
+    locationName: "Mayfest",
+    address: "Odessa, DE",
+    date: "2024-05-04",
+    startTime: "11 am",
+  } as EventProps,
+  {
+    facebookEventId: "299209436457869",
+    locationName: "Muddy Paws Farm Rescue",
+    address: "Southampton, NJ",
+    date: "2024-05-11",
+    startTime: "10 am",
+  } as EventProps,
+].sort((a, b) => (a.date < b.date ? -1 : 1));
 ---
 
 <Section id="Events" title="Events">
-   <div class="content">
-    {events.map(event => (
-        <Event {...event} />
-    ))}
+  <div class="content">
+    {events.map((event) => <Event {...event} />)}
 
-<div class="past">
-    <a href="https://www.facebook.com/luckystoneband/past_hosted_events">See past events</a>
-   </div>
-   </div>
+    <div class="past">
+      <a href="https://www.facebook.com/luckystoneband/past_hosted_events"
+        >See past events</a
+      >
+    </div>
+  </div>
 </Section>
 
 <style>
-    .content {
-        max-width: 800px;
-        margin:0 auto;
-    }
-    .past {
-        display: flex;
-        margin: 3rem;
-        justify-content: center;
-    }
-    a {
-		background: transparent;
-		border: none;
-		color: var(--primary);
-		cursor: pointer;
-		font-size: 1.25rem;
-		line-height: 1rem;
-		padding: 0;
-		text-decoration-color: rgba(var(--primaryRGB), 0.5);
-		text-decoration-line: underline;
-		text-decoration-thickness: 0.5px;
-		text-underline-offset: 0.5rem;
-		transition: all 0.3s ease;
-	}
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .past {
+    display: flex;
+    margin: 3rem;
+    justify-content: center;
+  }
+  a {
+    background: transparent;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 1rem;
+    padding: 0;
+    text-decoration-color: rgba(var(--primaryRGB), 0.5);
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.5px;
+    text-underline-offset: 0.5rem;
+    transition: all 0.3s ease;
+  }
 
-	a:hover,
-	a:focus {
-		color: var(--color-light);
-		line-height: 1rem;
-		text-decoration-color: rgba(var(--primaryRGB), 0.9);
-    }
+  a:hover,
+  a:focus {
+    color: var(--color-light);
+    line-height: 1rem;
+    text-decoration-color: rgba(var(--primaryRGB), 0.9);
+  }
 
-    /* TODO: style child react component in a better way */
+  /* TODO: style child react component in a better way */
+  :global(.event) {
+    margin: 2rem 0;
+    padding: 1rem 2rem;
+    background-color: rgba(var(--color-primary-dark2-rgb), 0.4);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+  :global(.event > :not(:last-child)) {
+    flex: 1;
+  }
+  :global(.event .subtext) {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: rgba(var(--color-light-rgb), 0.8);
+    text-align: left;
+  }
+  @media only screen and (max-width: 800px) {
     :global(.event) {
-        margin: 2rem 0;
-        padding: 1rem 2rem;
-        background-color: rgba(var(--color-primary-dark2-rgb), 0.4);
-        border-radius: 0.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-		transition: all 0.3s ease;
+      flex-direction: column;
+      text-align: center;
     }
-    :global(.event > :not(:last-child)) {
-        flex: 1;
-    }
-    @media only screen and (max-width: 800px) {
-		:global(.event) {
-			flex-direction: column;
-            text-align: center;
-		}
 
-        :global(.event .header) {
-            margin: 0 0 1rem;
-        }
-
-        :global(.event .date) {
-            font-size: 1.75rem;
-        }
-	}
-    :global(.event .date) {
-        font-weight: bold;
-        font-size: 1.5rem;
-    }
     :global(.event .header) {
-        display: flex;
-        align-items: center;
+      margin: 0 0 1rem;
     }
-    :global(.event .header i) {
-        margin-right: 0.5rem;
-    }
-    :global(.event .link) {
-		background: transparent;
-		border: 2px solid var(--primary);
-        border-radius: 50px;
-		color: var(--primary);
-		cursor: pointer;
-		padding: 0.5rem 1rem;
-		text-decoration: none;
-        text-transform: uppercase;
-		transition: all 0.3s ease;
-	}
 
-    :global(.event:hover),
-    :global(.event:focus) {
-        background-color: rgba(var(--color-primary-dark2-rgb), 0.55);
+    :global(.event .date) {
+      font-size: 1.75rem;
     }
-	:global(.event:hover .link),
-	:global(.event:focus .link) {
-        background: rgba(var(--color-primary-dark2-rgb), 0.9);
-		border-color: var(--color-light);
-		color: var(--color-light);
-	}
+
+    :global(.event .location) {
+      background: radial-gradient(
+        closest-side,
+        rgba(var(--color-light-rgb), 0.15),
+        transparent
+      );
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    :global(.event .start-time) {
+      text-align: center;
+      font-size: 1.125rem;
+    }
+  }
+  :global(.event .location) {
+    flex: 1.25;
+  }
+  :global(.event .date) {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  :global(.event .header) {
+    display: flex;
+    align-items: center;
+  }
+  :global(.event .location-name) {
+    font-size: 1.125rem;
+    font-weight: bold;
+  }
+  :global(.event .header i) {
+    margin-right: 0.75rem;
+  }
+  :global(.event .link) {
+    background: transparent;
+    border: 2px solid var(--primary);
+    border-radius: 50px;
+    color: var(--primary);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+
+  :global(.event:hover),
+  :global(.event:focus) {
+    background-color: rgba(var(--color-primary-dark2-rgb), 0.55);
+  }
+  :global(.event:hover .link),
+  :global(.event:focus .link) {
+    background: rgba(var(--color-primary-dark2-rgb), 0.9);
+    border-color: var(--color-light);
+    color: var(--color-light);
+  }
 </style>
