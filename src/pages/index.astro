@@ -3,156 +3,178 @@ import AboutUs from "../components/AboutUs.astro";
 import Events from "../components/Events.astro";
 import Follow from "../components/Follow.astro";
 import Layout from "../layouts/Layout.astro";
-import Hero from "../images/IMG_5146.jpg";
+import Hero from "../images/LuckyStone_4-13-24_Photo_Blur.jpg";
 import { Image } from "astro:assets";
 ---
 
 <Layout title="Lucky Stone">
-	<main>
-		<div class="banner">
-			<Image src={Hero} alt="lucky stone playing" />
-			<div class="band-name hero-cutout">Lucky Stone</div>
-			<div class="nav-container">
-				<h1 class="band-name">Lucky Stone</h1>
-				<nav>
-					<button class="navlink" id="link-Events">Events</button>
-					<button class="navlink" id="link-About">About</button>
-					<button class="navlink" id="link-Follow">Follow</button>
-				</nav>
-			</div>
-		</div>
-		<div>
-			<Events />
-			<AboutUs />
-			<Follow />
-		</div>
-	</main>
+  <main>
+    <div class="banner">
+      <Image src={Hero} alt="lucky stone playing. Credit Phillip Lebowitz @ The Photo Blur" />
+      <div class="band-name hero-cutout desktop">
+        Lucky&nbsp;<br />&nbsp;Stone
+      </div>
+      <div class="band-name hero-cutout mobile">Lucky<br />Stone</div>
+      <div class="nav-container">
+        <h1 class="band-name">Lucky Stone</h1>
+        <nav>
+          <button class="navlink" id="link-Events">Events</button>
+          <button class="navlink" id="link-About">About</button>
+          <button class="navlink" id="link-Follow">Follow</button>
+        </nav>
+      </div>
+    </div>
+    <div>
+      <Events />
+      <AboutUs />
+      <Follow />
+	  <div class="photo-credit">Top photo credit to Phillip Lebowitz @ The Photo Blur</div>
+    </div>
+  </main>
 </Layout>
 
 <style>
-	.band-name {
-		font-family: var(--font-header);
-		text-transform: uppercase;
-	}
+  .band-name {
+    font-family: var(--font-header);
+    text-transform: uppercase;
+  }
 
-	.hero-cutout {
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		overflow: hidden;
-		z-index: -1;
-		letter-spacing: -1rem;
-		background-color: rgba(0, 0, 0, 0.8);
-		font-size: max(min(38vw, 50vh), 20rem);
-		line-height: max(min(35vw, 50vh), 18rem);
-		mix-blend-mode: multiply;
-		text-align: center;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+  .hero-cutout {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+    letter-spacing: -1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: max(min(38vw, 50vh), 20rem);
+    line-height: max(min(35vw, 50vh), 18rem);
+    mix-blend-mode: multiply;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-cutout.desktop {
+    display: flex;
+  }
+  .hero-cutout.mobile {
+    display: none;
+  }
 
-	@media only screen and (max-width: 600px) {
-		.hero-cutout {
-			font-size: max(min(38vw, 50vh), 18rem);
-			line-height: max(min(35vw, 50vh), 15rem);
-			letter-spacing: 1rem;
-			justify-content: start;
-		}
-	}
+  .photo-credit {
+	font-size: 0.6rem;
+	text-align: right;
+	padding: 0.5rem 1rem;
+  }
 
-	h1 {
-		font-size: 3rem;
-		letter-spacing: 10px;
-		text-align: center;
-		text-shadow:
-			2px 2px 2px black,
-			0px 0px 3rem rgba(var(--primaryRGB), 0.5);
-		margin: 1rem;
-	}
+  @media only screen and (max-width: 600px) {
+    .hero-cutout {
+      font-size: max(min(38vw, 50vh), 18rem);
+      line-height: max(min(35vw, 50vh), 15rem);
+      letter-spacing: 1rem;
+      justify-content: start;
+    }
+    .hero-cutout.desktop {
+      display: none;
+    }
+    .hero-cutout.mobile {
+      display: flex;
+    }
+  }
 
-	main {
-		width: 100%;
-	}
+  h1 {
+    font-size: 3rem;
+    letter-spacing: 10px;
+    text-align: center;
+    text-shadow:
+      2px 2px 2px black,
+      0px 0px 3rem rgba(var(--primaryRGB), 0.5);
+    margin: 1rem;
+  }
 
-	.banner {
-		height: 100vh;
-		width: 100%;
-		position: relative;
-		display: flex;
-		flex-direction: column;
-	}
+  main {
+    width: 100%;
+  }
 
-	.banner > img {
-		position: absolute;
-		object-fit: cover;
-		height: 100%;
-		width: 100%;
-		z-index: -2;
-		filter: grayscale(0.9) brightness(0.7);
-	}
+  .banner {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
 
-	.nav-container {
-		background-color: rgba(0, 0, 0, 0.5);
-		width: 100%;
-		padding: 0rem;
-		padding-bottom: 1rem;
-		display: flex;
-		flex-direction: column;
-		margin-top: auto;
-	}
+  .banner > img {
+    position: absolute;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+    filter: grayscale(0.9) brightness(0.7);
+  }
 
-	nav {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 0;
-		padding-bottom: 1rem;
-	}
+  .nav-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 0rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+  }
 
-	nav > * {
-		margin-left: 1.5rem;
-		margin-right: 1.5rem;
-	}
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    padding-bottom: 1rem;
+  }
 
-	.navlink {
-		background: transparent;
-		border: none;
-		color: var(--primary);
-		cursor: pointer;
-		font-size: 1.25rem;
-		line-height: 1rem;
-		padding: 0;
-		text-decoration-color: rgba(var(--primaryRGB), 0.5);
-		text-decoration-line: underline;
-		text-decoration-thickness: 0.5px;
-		text-underline-offset: 0.5rem;
-		transition: all 0.3s ease;
-	}
+  nav > * {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
 
-	.navlink:hover,
-	.navlink:focus {
-		color: var(--color-light);
-		line-height: 1rem;
-		text-decoration-color: rgba(var(--primaryRGB), 0.9);
-	}
+  .navlink {
+    background: transparent;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 1rem;
+    padding: 0;
+    text-decoration-color: rgba(var(--primaryRGB), 0.5);
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.5px;
+    text-underline-offset: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .navlink:hover,
+  .navlink:focus {
+    color: var(--color-light);
+    line-height: 1rem;
+    text-decoration-color: rgba(var(--primaryRGB), 0.9);
+  }
 </style>
 <script>
-	function myScrollIntoView(id: string) {
-		const element = document.getElementById(id);
-		element?.scrollIntoView({ behavior: "smooth" });
-	}
+  function myScrollIntoView(id: string) {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
+  }
 
-	document
-		.getElementById("link-Events")
-		?.addEventListener("click", () => myScrollIntoView("Events"));
-	document
-		.getElementById("link-About")
-		?.addEventListener("click", () => myScrollIntoView("About"));
-	document
-		.getElementById("link-Listen")
-		?.addEventListener("click", () => myScrollIntoView("Listen"));
-	document
-		.getElementById("link-Follow")
-		?.addEventListener("click", () => myScrollIntoView("Follow"));
+  document
+    .getElementById("link-Events")
+    ?.addEventListener("click", () => myScrollIntoView("Events"));
+  document
+    .getElementById("link-About")
+    ?.addEventListener("click", () => myScrollIntoView("About"));
+  document
+    .getElementById("link-Listen")
+    ?.addEventListener("click", () => myScrollIntoView("Listen"));
+  document
+    .getElementById("link-Follow")
+    ?.addEventListener("click", () => myScrollIntoView("Follow"));
 </script>
