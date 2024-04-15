@@ -4,34 +4,6 @@ import { Event, EventProps } from "./Event";
 
 const events: EventProps[] = [
   {
-    facebookEventId: "1102776627757440",
-    locationName: "Stoney's British Pub",
-    address: "Wilmington, DE",
-    date: "2024-02-24",
-    startTime: "7:30 pm",
-  } as EventProps,
-  {
-    facebookEventId: "747917250510452",
-    locationName: "Midnight Oil Brewing Co.",
-    address: "Newark, DE",
-    date: "2024-03-09",
-    startTime: "6 pm",
-  } as EventProps,
-  {
-    facebookEventId: "1608413399985355",
-    locationName: "Klondike Kate's",
-    address: "Newark, DE",
-    date: "2024-03-16",
-    startTime: "8 pm",
-  } as EventProps,
-  {
-    facebookEventId: "2113556038981376",
-    locationName: "Constitution Yards",
-    address: "Wilmington, DE",
-    date: "2024-04-13",
-    startTime: "7 pm",
-  } as EventProps,
-  {
     facebookEventId: "1102759810877305",
     locationName: "Deer Park Tavern",
     address: "Newark, DE",
@@ -52,12 +24,47 @@ const events: EventProps[] = [
     date: "2024-05-11",
     startTime: "10 am",
   } as EventProps,
+  {
+    facebookEventId: "",
+    locationName: "Midnight Oil Brewing Co.",
+    address: "Newark, DE",
+    date: "2024-06-29",
+    startTime: "6 pm",
+  } as EventProps,
+  {
+    facebookEventId: "",
+    locationName: "Stoney's British Pub",
+    address: "Wilmington, DE",
+    date: "2024-08-24",
+    startTime: "7 pm",
+  } as EventProps,
+  {
+    facebookEventId: "",
+    locationName: "Muddy Paws Farm Rescue",
+    address: "Southampton, NJ",
+    date: "2024-09-14",
+    startTime: "10 am",
+  } as EventProps,
+  {
+    facebookEventId: "",
+    locationName: "Midnight Oil Brewing Co.",
+    address: "Newark, DE",
+    date: "2024-09-28",
+    startTime: "6 pm",
+  } as EventProps,
+  {
+    facebookEventId: "",
+    locationName: "Constitution Yards",
+    address: "Wilmington, DE",
+    date: "2024-10-26",
+    startTime: "7 pm",
+  } as EventProps,
 ].sort((a, b) => (a.date < b.date ? -1 : 1));
 ---
 
 <Section id="Events" title="Events">
   <div class="content">
-    {events.map((event) => <Event {...event} />)}
+    {events.map((event) => <Event {...event} client:only />)}
 
     <div class="past">
       <a href="https://www.facebook.com/luckystoneband/past_hosted_events"
