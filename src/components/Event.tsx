@@ -15,16 +15,16 @@ export const Event = (props: EventProps) => {
   const { address, date, facebookEventId, locationName, startTime } = props;
   const yesterday = dayjs().subtract(1, "day");
   const formattedDate = dayjs(date).format("dddd, MMM D");
+  const href = facebookEventId
+    ? `https://www.facebook.com/events/${facebookEventId}/`
+    : "https://www.facebook.com/luckystoneband";
 
   if (!yesterday.isBefore(date)) {
     return null;
   }
 
   return (
-    <a
-      className="event"
-      href={`https://www.facebook.com/events/${facebookEventId}/`}
-    >
+    <a className="event" href={href}>
       <div className="header date">
         <div>
           {formattedDate}
