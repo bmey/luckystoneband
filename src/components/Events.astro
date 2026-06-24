@@ -16,6 +16,7 @@ const events: EventProps[] = [
     address: "Newark, DE",
     date: "2026-06-26",
     startTime: "6-9 pm",
+    canceled: true,
   } as EventProps,
   {
     facebookEventId: "",
@@ -190,5 +191,23 @@ const events: EventProps[] = [
     background: rgba(var(--color-primary-dark2-rgb), 0.9);
     border-color: var(--color-light);
     color: var(--color-light);
+  }
+
+  :global(.event.canceled) {
+    opacity: 0.65;
+  }
+  :global(.event.canceled .date),
+  :global(.event.canceled .location-name) {
+    text-decoration: line-through;
+  }
+  :global(.event .canceled-badge),
+  :global(.event.canceled:hover .canceled-badge),
+  :global(.event.canceled:focus .canceled-badge) {
+    background: transparent;
+    border-color: #e04848;
+    color: #e04848;
+    cursor: default;
+    font-weight: bold;
+    letter-spacing: 0.05em;
   }
 </style>

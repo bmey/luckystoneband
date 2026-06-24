@@ -5,6 +5,7 @@ type DateString =
 
 export interface EventProps {
   address: string;
+  canceled?: boolean;
   date: DateString;
   facebookEventId: string;
   locationName: string;
@@ -12,7 +13,8 @@ export interface EventProps {
 }
 
 export const Event = (props: EventProps) => {
-  const { address, date, facebookEventId, locationName, startTime } = props;
+  const { address, canceled, date, facebookEventId, locationName, startTime } =
+    props;
   const yesterday = dayjs().subtract(1, "day");
   const formattedDate = dayjs(date).format("dddd, MMM D");
   const href = facebookEventId
@@ -24,7 +26,7 @@ export const Event = (props: EventProps) => {
   }
 
   return (
-    <a className="event" href={href}>
+    <a className={canceled ? "event canceled" : "event"} href={href}>
       <div className="header date">
         <div>
           {formattedDate}
@@ -38,7 +40,11 @@ export const Event = (props: EventProps) => {
           <div className="subtext">{address}</div>
         </div>
       </div>
-      <div className="link">View more</div>
+      {canceled ? (
+        <div className="link canceled-badge">Canceled</div>
+      ) : (
+        <div className="link">View more</div>
+      )}
     </a>
   );
 };
